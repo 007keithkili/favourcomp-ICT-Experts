@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - FAVOURCOMP ENTERPRISE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #e63946;
+            --dark-red: #c1121f;
+            --light-red: #ffcad4;
+            --primary-black: #1d1d1d;
+            --dark-gray: #2b2d42;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--primary-black);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-black);
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: 2px solid var(--primary-red);
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-red);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-red);
+            border: 2px solid var(--primary-red);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-red);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 30px auto 0;
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(29, 29, 29, 0.95);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .logo span {
+            color: var(--primary-red);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 35px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-red);
+        }
+
+        .nav-menu a.active {
+            color: var(--primary-red);
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-red);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-red);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        /* Hero Section for Contact Page */
+        .contact-hero {
+            background: linear-gradient(135deg, rgba(29, 29, 29, 0.9) 0%, rgba(43, 45, 66, 0.85) 100%), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            color: var(--white);
+            padding: 200px 0 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 10%, rgba(29, 29, 29, 0.95) 100%);
+        }
+
+        .contact-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .contact-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background: var(--white);
+            border-left: 4px solid var(--primary-red);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            background: var(--primary-black);
+        }
+
+        .contact-details h4 {
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+
+        .contact-details p {
+            color: var(--dark-gray);
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--primary-red);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .contact-form h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-red);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Office Location Section */
+        .office-location {
+            background-color: var(--light-gray);
+        }
+
+        .office-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .office-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .office-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .office-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .office-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .office-card:hover .office-image img {
+            transform: scale(1.1);
+        }
+
+        .office-content {
+            padding: 30px;
+        }
+
+        .office-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-red);
+        }
+
+        .office-details {
+            margin-bottom: 20px;
+        }
+
+        .office-details p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: var(--dark-gray);
+        }
+
+        /* Business Hours Section */
+        .business-hours {
+            background: linear-gradient(to right, var(--primary-black) 0%, var(--dark-gray) 100%);
+            color: var(--white);
+        }
+
+        .hours-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hours-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hours-content p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hours-table {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hour-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hour-row:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 600;
+        }
+
+        .time {
+            color: var(--primary-red);
+            font-weight: 600;
+        }
+
+        .hour-row.closed .time {
+            color: #ff6b6b;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--light-gray);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(230, 57, 70, 0.1);
+        }
+
+        .faq-question h4 {
+            font-size: 1.3rem;
+            color: var(--primary-black);
+        }
+
+        .faq-icon {
+            color: var(--primary-red);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-answer.active {
+            padding: 25px 30px;
+            max-height: 500px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-black);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about .logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-links h3::after,
+        .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-red);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary-red);
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.8;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-red);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .hours-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+            
+            .contact-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .contact-hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 90px;
+                right: -100%;
+                flex-direction: column;
+                background-color: var(--primary-black);
+                width: 280px;
+                height: calc(100vh - 90px);
+                padding: 40px 30px;
+                transition: right 0.4s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                margin: 0 0 25px 0;
+            }
+            
+            .contact-hero {
+                padding: 180px 0 80px;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero {
+                padding: 160px 0 60px;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .office-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">FC</div>
+                <h1>FAVOUR<span>COMP</span></h1>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#team">Team</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container contact-hero-content">
+            <h1>Get In Touch</h1>
+            <p>We're here to help with your IT needs. Reach out to us for inquiries, support, or project discussions.</p>
+            <div class="hero-btns">
+                <a href="#contact-form" class="btn">Send a Message</a>
+                <a href="tel:+254728050494" class="btn btn-outline">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title animate">
+                <h2>Contact Information</h2>
+                <p>Reach us through any of the following channels</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item animate">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Head Office</h4>
+                            <p>Eldoret, Uasin Gishu County<br>P.O. Box 30100, Kenya</p>
+                        </div>
+                    </div>
+                    <div class="contact-item animate">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone Numbers</h4>
+                            <p>Sales: +254728050494<br>Marketing: +254790505099<br>Technical Support: +254721473081</p>
+                        </div>
+                    </div>
+                    <div class="contact-item animate">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Address</h4>
+                            <p>favourcomp@gmail.com<br>support@favourcompenterprises.co.ke</p>
+                        </div>
+                    </div>
+                    <div class="contact-item animate">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Website & Social</h4>
+                            <p>www.favourcompenterprises.co.ke<br>Follow us on social media</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form animate" id="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service">
+                                <option value="">Select a service</option>
+                                <option value="hardware">Hardware Supply</option>
+                                <option value="repair">Repair & Maintenance</option>
+                                <option value="web">Web Development</option>
+                                <option value="software">Software Solutions</option>
+                                <option value="training">IT Training</option>
+                                <option value="consulting">IT Consulting</option>
+                                <option value="cctv">CCTV Installations</option>
+                                <option value="solar">Solar Solutions</option>
+                                <option value="pos">POS Systems</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" placeholder="Tell us about your project or inquiry..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Location Section -->
+    <section class="office-location">
+        <div class="container">
+            <div class="section-title animate">
+                <h2>Our Locations</h2>
+                <p>Visit us at our offices across Kenya</p>
+            </div>
+            <div class="office-container">
+                <div class="office-card animate">
+                    <div class="office-image">
+                        <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Eldoret Office">
+                    </div>
+                    <div class="office-content">
+                        <h3>Eldoret Head Office</h3>
+                        <div class="office-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Central Business District, Eldoret</p>
+                            <p><i class="fas fa-phone"></i> +254728050494</p>
+                            <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                        </div>
+                        <a href="https://maps.google.com/?q=Eldoret+Kenya" target="_blank" class="btn btn-outline">View on Map</a>
+                    </div>
+                </div>
+                <div class="office-card animate">
+                    <div class="office-image">
+                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Nairobi Office">
+                    </div>
+                    <div class="office-content">
+                        <h3>Nairobi Branch</h3>
+                        <div class="office-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Upper Hill, Nairobi</p>
+                            <p><i class="fas fa-phone"></i> +254722000000</p>
+                            <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                        </div>
+                        <a href="https://maps.google.com/?q=Nairobi+Kenya" target="_blank" class="btn btn-outline">View on Map</a>
+                    </div>
+                </div>
+                <div class="office-card animate">
+                    <div class="office-image">
+                        <img src="https://images.unsplash.com/photo-1564507004663-b6dfb3e2ede5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Kisumu Office">
+                    </div>
+                    <div class="office-content">
+                        <h3>Kisumu Branch</h3>
+                        <div class="office-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Milimani, Kisumu</p>
+                            <p><i class="fas fa-phone"></i> +254733000000</p>
+                            <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                        </div>
+                        <a href="https://maps.google.com/?q=Kisumu+Kenya" target="_blank" class="btn btn-outline">View on Map</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Hours Section -->
+    <section class="business-hours">
+        <div class="container">
+            <div class="section-title animate">
+                <h2>Business Hours</h2>
+                <p>We're available during these hours for consultations and support</p>
+            </div>
+            <div class="hours-container">
+                <div class="hours-content animate">
+                    <h3>When to Reach Us</h3>
+                    <p>Our team is available during regular business hours for consultations, support, and project discussions. For emergency technical support, we provide 24/7 services for our premium clients.</p>
+                    <div class="contact-item animate">
+                        <div class="contact-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Emergency Support</h4>
+                            <p>24/7 Emergency Technical Support Available for Registered Clients</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hours-table animate">
+                    <div class="hour-row">
+                        <div class="day">Monday</div>
+                        <div class="time">8:00 AM - 5:00 PM</div>
+                    </div>
+                    <div class="hour-row">
+                        <div class="day">Tuesday</div>
+                        <div class="time">8:00 AM - 5:00 PM</div>
+                    </div>
+                    <div class="hour-row">
+                        <div class="day">Wednesday</div>
+                        <div class="time">8:00 AM - 5:00 PM</div>
+                    </div>
+                    <div class="hour-row">
+                        <div class="day">Thursday</div>
+                        <div class="time">8:00 AM - 5:00 PM</div>
+                    </div>
+                    <div class="hour-row">
+                        <div class="day">Friday</div>
+                        <div class="time">8:00 AM - 5:00 PM</div>
+                    </div>
+                    <div class="hour-row">
+                        <div class="day">Saturday</div>
+                        <div class="time">9:00 AM - 1:00 PM</div>
+                    </div>
+                    <div class="hour-row closed">
+                        <div class="day">Sunday</div>
+                        <div class="time">Closed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="section-title animate">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions about our services and support</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item animate">
+                    <div class="faq-question">
+                        <h4>What is your typical response time for support requests?</h4>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We typically respond to support requests within 2-4 business hours during regular working hours. Emergency support requests from premium clients receive immediate attention 24/7.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate">
+                    <div class="faq-question">
+                        <h4>Do you offer remote IT support services?</h4>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide comprehensive remote IT support for most software and network-related issues. We use secure remote access tools to diagnose and fix problems without needing to be physically on-site.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate">
+                    <div class="faq-question">
+                        <h4>What areas in Kenya do you serve?</h4>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We serve clients across Kenya with our main offices in Eldoret, Nairobi, and Kisumu. We also have mobile teams that can travel to other regions for on-site installations and support.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate">
+                    <div class="faq-question">
+                        <h4>Do you provide IT equipment leasing options?</h4>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer flexible IT equipment leasing options for businesses that prefer not to make large capital investments. Our leasing plans include maintenance and support services.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate">
+                    <div class="faq-question">
+                        <h4>How long does a typical web development project take?</h4>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The timeline varies based on project complexity. Simple websites take 2-4 weeks, medium complexity projects take 4-8 weeks, and complex enterprise solutions can take 8-16 weeks. We provide detailed timelines during the consultation phase.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="logo">
+                        <div class="logo-img">FC</div>
+                        <h1>FAVOUR<span>COMP</span></h1>
+                    </div>
+                    <p>Providing cutting-edge IT solutions and services since 2012. Our commitment to excellence drives us to exceed client expectations with every project.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="contacts.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="index.html#team">Our Team</a></li>
+                        <li><a href="contacts.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Eldoret, Uasin Gishu, Kenya</p>
+                    <p><i class="fas fa-phone-alt"></i> +254728050494</p>
+                    <p><i class="fas fa-envelope"></i> favourcomp@gmail.com</p>
+                    <p><i class="fas fa-globe"></i> www.favourcompenterprises.co.ke</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 FAVOURCOMP ENTERPRISE. All Rights Reserved. | Designed by keith kili</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.querySelector('i').classList.remove('fa-times');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple form validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && message) {
+                alert('Thank you for your message! We will get back to you within 24 hours.');
+                contactForm.reset();
+            } else {
+                alert('Please fill in all required fields (marked with *).');
+            }
+        });
+        
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // FAQ toggle functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('.faq-icon');
+                
+                // Close other open FAQs
+                document.querySelectorAll('.faq-answer.active').forEach(activeAnswer => {
+                    if (activeAnswer !== answer) {
+                        activeAnswer.classList.remove('active');
+                        activeAnswer.previousElementSibling.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ
+                question.classList.toggle('active');
+                answer.classList.toggle('active');
+                
+                // Change icon
+                if (question.classList.contains('active')) {
+                    icon.textContent = '−';
+                } else {
+                    icon.textContent = '+';
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'var(--primary-black)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.backgroundColor = 'rgba(29, 29, 29, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Set current year in footer
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearSpan = document.querySelector('.copyright p');
+            if (yearSpan) {
+                yearSpan.innerHTML = yearSpan.innerHTML.replace('2023', new Date().getFullYear());
+            }
+        });
+    </script>
+</body>
+</html>
