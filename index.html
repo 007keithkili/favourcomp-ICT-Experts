@@ -37,7 +37,10 @@
             --border-subtle: #252A33;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-weight: 700;
             letter-spacing: -0.02em;
         }
@@ -222,52 +225,66 @@
             box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.5);
         }
 
-        /* about section */
-        .about-content {
+        /* about section - redesigned with opposite sides */
+        .about-split {
             display: flex;
+            flex-direction: column;
             gap: 60px;
+        }
+
+        .about-row {
+            display: flex;
             align-items: center;
+            gap: 50px;
             flex-wrap: wrap;
         }
 
-        .about-text {
+        .about-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .about-text-block {
             flex: 1.2;
         }
 
-        .about-text h3 {
+        .about-text-block h3 {
             font-size: 1.7rem;
-            margin: 28px 0 12px 0;
+            margin-bottom: 20px;
             color: var(--accent-primary);
         }
 
-        .about-text p {
+        .about-text-block p {
             color: var(--text-secondary);
             margin-bottom: 18px;
+            line-height: 1.7;
         }
 
-        .about-image {
-            flex: 1;
-            border-radius: 36px;
+        .about-img-block {
+            flex: 0.9;
+            max-width: 320px;
+            border-radius: 28px;
             overflow: hidden;
             border: 1px solid #2F3542;
+            transition: all 0.3s ease;
+            background: #111116;
         }
 
-        .about-image .image-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .about-image .image-grid img {
+        .about-img-block img {
             width: 100%;
             height: auto;
             display: block;
             transition: transform 0.4s;
-            border-radius: 24px; /* soft rounded corners inside the container */
+            object-fit: cover;
+            aspect-ratio: 4 / 3;
         }
 
-        .about-image:hover .image-grid img {
-            transform: scale(1.05);
+        .about-img-block:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+
+        .about-img-block:hover img {
+            transform: scale(1.02);
         }
 
         .stats-grid {
@@ -445,11 +462,13 @@
             padding-left: 0;
             list-style: none;
         }
+
         .project-list li {
             margin-bottom: 8px;
             display: flex;
             gap: 8px;
         }
+
         .project-list li i {
             color: var(--accent-primary);
             margin-top: 4px;
@@ -548,7 +567,8 @@
             border: 1px solid #2D3440;
         }
 
-        .form-group input, .form-group textarea {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
             padding: 15px 20px;
             background: #10141C;
@@ -558,7 +578,8 @@
             font-family: inherit;
         }
 
-        .form-group input:focus, .form-group textarea:focus {
+        .form-group input:focus,
+        .form-group textarea:focus {
             border-color: var(--accent-primary);
             outline: none;
         }
@@ -621,6 +642,7 @@
             .mobile-toggle {
                 display: block;
             }
+
             .nav-menu {
                 position: fixed;
                 top: 85px;
@@ -634,30 +656,46 @@
                 border-left: 1px solid #2C3440;
                 backdrop-filter: blur(20px);
             }
+
             .nav-menu.active {
                 right: 0;
             }
+
             .hero h1 {
                 font-size: 2.4rem;
             }
+
             .timeline::before {
                 left: 28px;
             }
+
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 left: 0 !important;
             }
+
             .section-title h2 {
                 font-size: 2.2rem;
             }
         }
 
-        /* Responsive for about image grid */
-        @media (max-width: 768px) {
-            .about-image .image-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+        /* Responsive for about rows */
+        @media (max-width: 900px) {
+            .about-row,
+            .about-row.reverse {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .about-img-block {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .about-text-block {
+                text-align: left;
             }
         }
     </style>
@@ -672,10 +710,10 @@
         </div>
         <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
         <ul class="nav-menu" id="navMenu">
-           <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="Contacts.html">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="Contacts.html">Contact</a></li>
         </ul>
     </div>
 </header>
@@ -693,24 +731,38 @@
         </div>
     </section>
 
-    <!-- About -->
+    <!-- About Section: redesigned with two rows, images opposite sides -->
     <section id="about">
         <div class="container">
-            <div class="section-title animate"><h2>About FAVOURCOMP</h2><p>Your trusted partner in digital transformation</p></div>
-            <div class="about-content">
-                <div class="about-text animate">
-                    <h3>Background & Mission</h3>
-                    <p>Established in 2012 and incorporated in 2017, FAVOURCOMP ENTERPRISE is built by seasoned IT professionals. We deliver computer products, system design, installations, and managed IT services to modern organizations.</p>
-                    <h3>Mission Statement</h3>
-                    <p>Empower clients with reliable, secure, and agile IT infrastructure that drives measurable business outcomes.</p>
-                </div>
-                <div class="about-image animate">
-                    <div class="image-grid">
+            <div class="section-title animate">
+                <h2>About FAVOURCOMP</h2>
+                <p>Your trusted partner in digital transformation</p>
+            </div>
+
+            <div class="about-split">
+                <!-- Row 1: Background & Mission text (left) + Image1 (right) -->
+                <div class="about-row animate">
+                    <div class="about-text-block">
+                        <h3>Background & Mission</h3>
+                        <p>Established in 2012 and incorporated in 2017, FAVOURCOMP ENTERPRISE is built by seasoned IT professionals. We deliver computer products, system design, installations, and managed IT services to modern organizations.</p>
+                    </div>
+                    <div class="about-img-block">
                         <img src="https://i.pinimg.com/736x/73/4a/55/734a553f6c9ffd86e0b8922347fee45a.jpg" alt="Tech team collaboration">
+                    </div>
+                </div>
+
+                <!-- Row 2: Image2 (left) + Mission Statement text (right) -->
+                <div class="about-row reverse animate">
+                    <div class="about-img-block">
                         <img src="https://i.pinimg.com/736x/02/ea/24/02ea240c6f8f74ba02f2a8601568d947.jpg" alt="Office environment">
+                    </div>
+                    <div class="about-text-block">
+                        <h3>Mission Statement</h3>
+                        <p>Empower clients with reliable, secure, and agile IT infrastructure that drives measurable business outcomes.</p>
                     </div>
                 </div>
             </div>
+
             <div class="stats-grid">
                 <div class="stat-card animate"><h4>13+</h4><p>Years Experience</p></div>
                 <div class="stat-card animate"><h4>200+</h4><p>Projects Completed</p></div>
@@ -722,13 +774,36 @@
     <!-- Values -->
     <section id="values" style="background: #08090E;">
         <div class="container">
-            <div class="section-title animate"><h2>Our Core Values</h2><p>Principles that drive our excellence</p></div>
+            <div class="section-title animate">
+                <h2>Our Core Values</h2>
+                <p>Principles that drive our excellence</p>
+            </div>
             <div class="values-grid">
-                <div class="value-card animate"><div class="value-icon"><i class="fas fa-handshake"></i></div><h3>Commitment</h3><p>We deliver beyond expectations with integrity.</p></div>
-                <div class="value-card animate"><div class="value-icon"><i class="fas fa-chart-line"></i></div><h3>Customer Value</h3><p>Your growth is our ultimate KPI.</p></div>
-                <div class="value-card animate"><div class="value-icon"><i class="fas fa-users"></i></div><h3>Teamwork</h3><p>Collaborative minds create breakthrough solutions.</p></div>
-                <div class="value-card animate"><div class="value-icon"><i class="fas fa-bolt"></i></div><h3>Agility</h3><p>Fast adaptation to evolving tech landscapes.</p></div>
-                <div class="value-card animate"><div class="value-icon"><i class="fas fa-shield-alt"></i></div><h3>Professionalism</h3><p>Ethical, certified, and data‑driven.</p></div>
+                <div class="value-card animate">
+                    <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Commitment</h3>
+                    <p>We deliver beyond expectations with integrity.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Customer Value</h3>
+                    <p>Your growth is our ultimate KPI.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon"><i class="fas fa-users"></i></div>
+                    <h3>Teamwork</h3>
+                    <p>Collaborative minds create breakthrough solutions.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Agility</h3>
+                    <p>Fast adaptation to evolving tech landscapes.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Professionalism</h3>
+                    <p>Ethical, certified, and data-driven.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -736,16 +811,83 @@
     <!-- Services with reliable Unsplash images -->
     <section id="services">
         <div class="container">
-            <div class="section-title animate"><h2>Comprehensive IT Solutions</h2><p>End-to-end technology services for modern enterprises</p></div>
+            <div class="section-title animate">
+                <h2>Comprehensive IT Solutions</h2>
+                <p>End-to-end technology services for modern enterprises</p>
+            </div>
             <div class="services-grid">
-                <div class="service-card animate"><div class="service-img"><img src="https://i.pinimg.com/736x/14/64/82/1464825259656e438a3abedf4a6da769.jpg" alt="Hardware"></div><div class="service-content"><h3>Hardware Supply</h3><p>Laptops, servers, printers, UPS and accessories from leading brands.</p></div></div>
-                <div class="service-card animate"><div class="service-img"><img src="https://i.pinimg.com/736x/dd/50/74/dd507457ac7f2475c96fd475d66914c8.jpg" alt="Repair"></div><div class="service-content"><h3>Repair & Maintenance</h3><p>On-site and remote repair, SLA maintenance, hardware troubleshooting.</p></div></div>
-                <div class="service-card animate"><div class="service-img"><img src="https://i.pinimg.com/736x/7f/56/4d/7f564d02e9dc979dc289d3987746fa8e.jpg" alt="Web Dev"></div><div class="service-content"><h3>Web & Software Dev</h3><p>Custom web portals, enterprise applications, and e‑commerce platforms.</p></div></div>
-                <div class="service-card animate"><div class="service-img"><img src="https://i.pinimg.com/736x/58/cc/3f/58cc3fd89a6a19d59e18ef50c8147532.jpg" alt="Training"></div><div class="service-content"><h3>IT Training</h3><p>Workshops and certifications to upskill your team.</p></div></div>
-                <div class="service-card animate"><div class="service-img"><img src="https://i.pinimg.com/736x/94/d5/28/94d528b68556ac8558923edf9b5aff5a.jpg" alt="CCTV"></div><div class="service-content"><h3>CCTV & Surveillance</h3><p>IP cameras, NVR systems, remote monitoring solutions.</p></div></div>
-                <div class="service-card animate"><div class="service-img"><img src="https://i.pinimg.com/1200x/57/7f/71/577f7175f838f771f238ad89d62ab0ff.jpg" alt="Solar"></div><div class="service-content"><h3>Solar Energy</h3><p>Hybrid solar backup for businesses to cut energy costs.</p></div></div>
-                <div class="service-card animate"><div class="service-img"><img src="https://i.pinimg.com/736x/62/81/86/628186fe2bc95c921f789f6ec0758e1d.jpg" alt="POS"></div><div class="service-content"><h3>Point of Sale Systems</h3><p>Modern POS hardware + software for retail and hospitality.</p></div></div>
-                <div class="service-card animate"><div class="service-img"><img src="https://i.pinimg.com/1200x/46/b9/e0/46b9e0e1f9dcdbfccbcec1bea7dd5ba5.jpg" alt="Consulting"></div><div class="service-content"><h3>IT Consulting</h3><p>Strategic tech advice, infrastructure planning, digital audits.</p></div></div>
+                <div class="service-card animate">
+                    <div class="service-img">
+                        <img src="https://i.pinimg.com/736x/14/64/82/1464825259656e438a3abedf4a6da769.jpg" alt="Hardware">
+                    </div>
+                    <div class="service-content">
+                        <h3>Hardware Supply</h3>
+                        <p>Laptops, servers, printers, UPS and accessories from leading brands.</p>
+                    </div>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-img">
+                        <img src="https://i.pinimg.com/736x/dd/50/74/dd507457ac7f2475c96fd475d66914c8.jpg" alt="Repair">
+                    </div>
+                    <div class="service-content">
+                        <h3>Repair & Maintenance</h3>
+                        <p>On-site and remote repair, SLA maintenance, hardware troubleshooting.</p>
+                    </div>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-img">
+                        <img src="https://i.pinimg.com/736x/7f/56/4d/7f564d02e9dc979dc289d3987746fa8e.jpg" alt="Web Dev">
+                    </div>
+                    <div class="service-content">
+                        <h3>Web & Software Dev</h3>
+                        <p>Custom web portals, enterprise applications, and e-commerce platforms.</p>
+                    </div>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-img">
+                        <img src="https://i.pinimg.com/736x/58/cc/3f/58cc3fd89a6a19d59e18ef50c8147532.jpg" alt="Training">
+                    </div>
+                    <div class="service-content">
+                        <h3>IT Training</h3>
+                        <p>Workshops and certifications to upskill your team.</p>
+                    </div>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-img">
+                        <img src="https://i.pinimg.com/736x/94/d5/28/94d528b68556ac8558923edf9b5aff5a.jpg" alt="CCTV">
+                    </div>
+                    <div class="service-content">
+                        <h3>CCTV & Surveillance</h3>
+                        <p>IP cameras, NVR systems, remote monitoring solutions.</p>
+                    </div>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-img">
+                        <img src="https://i.pinimg.com/1200x/57/7f/71/577f7175f838f771f238ad89d62ab0ff.jpg" alt="Solar">
+                    </div>
+                    <div class="service-content">
+                        <h3>Solar Energy</h3>
+                        <p>Hybrid solar backup for businesses to cut energy costs.</p>
+                    </div>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-img">
+                        <img src="https://i.pinimg.com/736x/62/81/86/628186fe2bc95c921f789f6ec0758e1d.jpg" alt="POS">
+                    </div>
+                    <div class="service-content">
+                        <h3>Point of Sale Systems</h3>
+                        <p>Modern POS hardware + software for retail and hospitality.</p>
+                    </div>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-img">
+                        <img src="https://i.pinimg.com/1200x/46/b9/e0/46b9e0e1f9dcdbfccbcec1bea7dd5ba5.jpg" alt="Consulting">
+                    </div>
+                    <div class="service-content">
+                        <h3>IT Consulting</h3>
+                        <p>Strategic tech advice, infrastructure planning, digital audits.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -753,11 +895,41 @@
     <!-- Portfolio -->
     <section id="portfolio" style="background: #080A0F;">
         <div class="container">
-            <div class="section-title animate"><h2>Featured Work</h2><p>Web solutions that drive business growth</p></div>
+            <div class="section-title animate">
+                <h2>Featured Work</h2>
+                <p>Web solutions that drive business growth</p>
+            </div>
             <div class="portfolio-grid">
-                <div class="portfolio-card animate"><div class="portfolio-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="bektas"></div><div class="portfolio-content"><h3>Bektas Blocks</h3><p>E‑commerce platform for construction materials.</p><a href="#" style="color: var(--accent-primary); font-weight: 500;">View case →</a></div></div>
-                <div class="portfolio-card animate"><div class="portfolio-img"><img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="remote travels"></div><div class="portfolio-content"><h3>Remote Travels</h3><p>Travel agency booking & payment gateway integration.</p><a href="#" style="color: var(--accent-primary); font-weight: 500;">Explore →</a></div></div>
-                <div class="portfolio-card animate"><div class="portfolio-img"><img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="cycon"></div><div class="portfolio-content"><h3>Cycon Investment</h3><p>Investment analytics dashboard with real-time data.</p><a href="#" style="color: var(--accent-primary); font-weight: 500;">Live demo →</a></div></div>
+                <div class="portfolio-card animate">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="bektas">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Bektas Blocks</h3>
+                        <p>E-commerce platform for construction materials.</p>
+                        <a href="#" style="color: var(--accent-primary); font-weight: 500;">View case →</a>
+                    </div>
+                </div>
+                <div class="portfolio-card animate">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="remote travels">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Remote Travels</h3>
+                        <p>Travel agency booking & payment gateway integration.</p>
+                        <a href="#" style="color: var(--accent-primary); font-weight: 500;">Explore →</a>
+                    </div>
+                </div>
+                <div class="portfolio-card animate">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="cycon">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Cycon Investment</h3>
+                        <p>Investment analytics dashboard with real-time data.</p>
+                        <a href="#" style="color: var(--accent-primary); font-weight: 500;">Live demo →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -765,14 +937,53 @@
     <!-- Projects Timeline -->
     <section id="projects">
         <div class="container">
-            <div class="section-title animate"><h2>Recent Deployments</h2><p>Trusted by leading organizations across Kenya</p></div>
+            <div class="section-title animate">
+                <h2>Recent Deployments</h2>
+                <p>Trusted by leading organizations across Kenya</p>
+            </div>
             <div class="timeline">
-                <div class="timeline-item"><div class="timeline-content"><div class="timeline-year">2017</div><h3>KK Security Group</h3><p>Networking infrastructure at Kabras Sugar</p></div></div>
-                <div class="timeline-item"><div class="timeline-content"><div class="timeline-year">2017</div><h3>Sukari Industries</h3><p>Computer supply & CCTV – South Nyanza</p></div></div>
-                <div class="timeline-item"><div class="timeline-content"><div class="timeline-year">2019</div><h3>Gicheru Advocates</h3><p>Complete office networking – Eldoret</p></div></div>
-                <div class="timeline-item"><div class="timeline-content"><div class="timeline-year">2020</div><h3>Sisibo Tea Factory</h3><p>Laptop deployment – Eldoret</p></div></div>
-                <div class="timeline-item"><div class="timeline-content"><div class="timeline-year">2023</div><h3>Wagon Wheel Hotel</h3><p>Outdoor Wi‑Fi hotspots, Eldoret</p></div></div>
-                <div class="timeline-item"><div class="timeline-content"><div class="timeline-year">2025</div><h3>Menand Farm</h3><p>CCTV installation – Ndalat, Eldoret</p></div></div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2017</div>
+                        <h3>KK Security Group</h3>
+                        <p>Networking infrastructure at Kabras Sugar</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2017</div>
+                        <h3>Sukari Industries</h3>
+                        <p>Computer supply & CCTV – South Nyanza</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3>Gicheru Advocates</h3>
+                        <p>Complete office networking – Eldoret</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3>Sisibo Tea Factory</h3>
+                        <p>Laptop deployment – Eldoret</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Wagon Wheel Hotel</h3>
+                        <p>Outdoor Wi-Fi hotspots, Eldoret</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h3>Menand Farm</h3>
+                        <p>CCTV installation – Ndalat, Eldoret</p>
+                    </div>
+                </div>
                 <!-- Single 2026 category with all three projects listed together -->
                 <div class="timeline-item">
                     <div class="timeline-content">
@@ -792,13 +1003,64 @@
     <!-- Team -->
     <section id="team" style="background: #080A0F;">
         <div class="container">
-            <div class="section-title animate"><h2>Leadership & Experts</h2><p>Innovation-driven professionals</p></div>
+            <div class="section-title animate">
+                <h2>Leadership & Experts</h2>
+                <p>Innovation-driven professionals</p>
+            </div>
             <div class="team-grid">
-                <div class="team-card animate"><div class="member-img"><img src="https://i.pinimg.com/736x/6f/5f/b0/6f5fb05588160ba20f957c490eb8c654.jpg" alt="Wilberforce"><div class="member-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="member-info"><h3>Wilberforce Mwanga</h3><p>Chief Executive Officer/Lead technician.</p><span style="color: #A8AFC0;"></span></div></div>
-                <div class="team-card animate"><div class="member-img"><img src="https://i.pinimg.com/736x/eb/f3/36/ebf336605c6880e9dde33715ddc9ed78.jpg" alt="keith"><div class="member-social"><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div><div class="member-info"><h3>keith kili</h3><p>Software eng</p><span></span></div></div>
-                <div class="team-card animate"><div class="member-img"><img src="https://i.pinimg.com/1200x/65/63/80/6563802a9c2f44e175da328e3c9aa4b3.jpg" alt="oscar"><div class="member-social"><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div><div class="member-info"><h3>Oscar Wafula</h3><p> Marketing</p><span></span></div></div>
-                               <div class="team-card animate"><div class="member-img"><img src="https://i.pinimg.com/1200x/50/41/d5/5041d5c7bba806df99d9eece6e440aa7.jpg" alt="oscar"><div class="member-social"><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div><div class="member-info"><h3> Robert Elegwa</h3><p> Technician</p><span></span></div></div>
-
+                <div class="team-card animate">
+                    <div class="member-img">
+                        <img src="https://i.pinimg.com/736x/6f/5f/b0/6f5fb05588160ba20f957c490eb8c654.jpg" alt="Wilberforce">
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Wilberforce Mwanga</h3>
+                        <p>Chief Executive Officer/Lead technician.</p>
+                        <span style="color: #A8AFC0;"></span>
+                    </div>
+                </div>
+                <div class="team-card animate">
+                    <div class="member-img">
+                        <img src="https://i.pinimg.com/736x/eb/f3/36/ebf336605c6880e9dde33715ddc9ed78.jpg" alt="keith">
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>keith kili</h3>
+                        <p>Software eng</p>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="team-card animate">
+                    <div class="member-img">
+                        <img src="https://i.pinimg.com/1200x/65/63/80/6563802a9c2f44e175da328e3c9aa4b3.jpg" alt="oscar">
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Oscar Wafula</h3>
+                        <p> Marketing</p>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="team-card animate">
+                    <div class="member-img">
+                        <img src="https://i.pinimg.com/1200x/50/41/d5/5041d5c7bba806df99d9eece6e440aa7.jpg" alt="oscar">
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3> Robert Elegwa</h3>
+                        <p> Technician</p>
+                        <span></span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -806,19 +1068,46 @@
     <!-- Contact -->
     <section id="contact">
         <div class="container">
-            <div class="section-title animate"><h2>Let's Connect</h2><p>Ready to elevate your IT infrastructure?</p></div>
+            <div class="section-title animate">
+                <h2>Let's Connect</h2>
+                <p>Ready to elevate your IT infrastructure?</p>
+            </div>
             <div class="contact-wrapper">
                 <div class="contact-details">
-                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Office</h4><p>Eldoret, Uasin Gishu County, Kenya<br>P.O. Box 30100</p></div></div>
-                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div><h4>Call Us</h4><p>Sales: +254728050494<br>Support: +254721473081</p></div></div>
-                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><p>favourcomp@gmail.com</p></div></div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Office</h4>
+                            <p>Eldoret, Uasin Gishu County, Kenya<br>P.O. Box 30100</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>Sales: +254728050494<br>Support: +254721473081</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>favourcomp@gmail.com</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="contact-form animate">
                     <h3 style="margin-bottom: 24px;">Send Inquiry</h3>
                     <form id="contactForm">
-                        <div class="form-group" style="margin-bottom: 20px;"><input type="text" placeholder="Full name" id="name" required></div>
-                        <div class="form-group" style="margin-bottom: 20px;"><input type="email" placeholder="Email address" id="email" required></div>
-                        <div class="form-group" style="margin-bottom: 20px;"><textarea rows="4" placeholder="Tell us about your project" id="message" required></textarea></div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <input type="text" placeholder="Full name" id="name" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <input type="email" placeholder="Email address" id="email" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <textarea rows="4" placeholder="Tell us about your project" id="message" required></textarea>
+                        </div>
                         <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
@@ -830,26 +1119,52 @@
 <footer>
     <div class="container">
         <div class="footer-grid">
-            <div><div class="logo"><img class="logo-img" src="https://i.pinimg.com/736x/71/94/e5/7194e59d302747a79326de8862d59ddd.jpg" alt="logo" style="width:45px;"><h1 style="font-size:1.5rem;">FAVOUR<span>COMP</span></h1></div><p style="margin-top: 18px;">Delivering future-ready IT solutions with integrity and speed.</p><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div>
-            <div><h3>Services</h3><ul style="list-style: none; margin-top: 15px;"><li>Hardware Supply</li><li>Software Development</li><li>CCTV & Security</li><li>IT Consulting</li></ul></div>
-            <div><h3>Support</h3><ul style="list-style: none; margin-top: 15px;"><li><a href="#contact" style="color:#A8AFC0; text-decoration: none;">Contact</a></li><li>FAQ</li><li>Privacy Policy</li></ul></div>
+            <div>
+                <div class="logo">
+                    <img class="logo-img" src="https://i.pinimg.com/736x/71/94/e5/7194e59d302747a79326de8862d59ddd.jpg" alt="logo" style="width:45px;">
+                    <h1 style="font-size:1.5rem;">FAVOUR<span>COMP</span></h1>
+                </div>
+                <p style="margin-top: 18px;">Delivering future-ready IT solutions with integrity and speed.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Services</h3>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li>Hardware Supply</li>
+                    <li>Software Development</li>
+                    <li>CCTV & Security</li>
+                    <li>IT Consulting</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Support</h3>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li><a href="#contact" style="color:#A8AFC0; text-decoration: none;">Contact</a></li>
+                    <li>FAQ</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
         </div>
-    
-<div class="copyright"><p>© 2025 FAVOURCOMP ENTERPRISE. All rights reserved. </a>.</p></div>
 
-
+        <div class="copyright"><p>© 2025 FAVOURCOMP ENTERPRISE. All rights reserved. </a>.</p></div>
     </div>
 </footer>
 
 <script>
     const mobileToggle = document.getElementById('mobileToggle');
     const navMenu = document.getElementById('navMenu');
+
     mobileToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         const icon = mobileToggle.querySelector('i');
         icon.classList.toggle('fa-bars');
         icon.classList.toggle('fa-times');
     });
+
     document.querySelectorAll('.nav-menu a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -857,33 +1172,47 @@
             mobileToggle.querySelector('i').classList.remove('fa-times');
         });
     });
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            if(targetId === "#") return;
+            if (targetId === "#") return;
             const target = document.querySelector(targetId);
-            if(target) window.scrollTo({ top: target.offsetTop - 90, behavior: 'smooth' });
+            if (target) window.scrollTo({ top: target.offsetTop - 90, behavior: 'smooth' });
         });
     });
+
     const animateElements = document.querySelectorAll('.animate');
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('animated'); observer.unobserve(entry.target); } });
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
     }, { threshold: 0.15 });
+
     animateElements.forEach(el => observer.observe(el));
+
     const timelineItems = document.querySelectorAll('.timeline-item');
     const timelineObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
     }, { threshold: 0.2 });
+
     timelineItems.forEach(item => timelineObs.observe(item));
+
     document.getElementById('contactForm').addEventListener('submit', (e) => {
         e.preventDefault();
         alert('Thank you! Our team will respond within 24 hours.');
         e.target.reset();
     });
+
     window.addEventListener('scroll', () => {
         const header = document.querySelector('header');
-        if(window.scrollY > 60) header.style.background = 'rgba(5, 5, 8, 0.95)';
+        if (window.scrollY > 60) header.style.background = 'rgba(5, 5, 8, 0.95)';
         else header.style.background = 'rgba(5, 5, 8, 0.85)';
     });
 </script>
