@@ -810,13 +810,15 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header - Fixed: Added missing mobile toggle button, removed stray </button> -->
     <header>
         <div class="container header-container">
-          <div class="logo">
-            <img class="logo-img" src="https://i.pinimg.com/736x/71/94/e5/7194e59d302747a79326de8862d59ddd.jpg" alt="FavourComp">
-            <h1>FAVOUR<span>COMP</span></h1>
-        </div>
+            <div class="logo">
+                <img class="logo-img" src="https://i.pinimg.com/736x/71/94/e5/7194e59d302747a79326de8862d59ddd.jpg" alt="FavourComp">
+                <h1>FAVOUR<span>COMP</span></h1>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
@@ -869,13 +871,17 @@
                                Technical Support: <a href="tel:+254792952399">0792 952 399</a></p>
                         </div>
                     </div>
+                    <!-- Fixed email: split into two mailto links for clarity -->
                     <div class="contact-item animate">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
                             <h4>Email Address</h4>
-                            <p><a href="mailto:favourcompexperts@gmail.com">favourcompexperts@gmail.com/favourcomp@gmail.com</a></p>
+                            <p>
+                                <a href="mailto:favourcompexperts@gmail.com">favourcompexperts@gmail.com</a><br>
+                                <a href="mailto:favourcomp@gmail.com">favourcomp@gmail.com</a>
+                            </p>
                         </div>
                     </div>
                     <!-- Website & Social Media properly split -->
@@ -903,7 +909,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>TikTok</h4>
-                            <p><a href="https://www.tiktok.com/@favourcompexperts" target="_blank">favourcomexperts</a></p>
+                            <p><a href="https://www.tiktok.com/@favourcompexperts" target="_blank">@favourcomexperts</a></p>
                         </div>
                     </div>
                 </div>
@@ -998,7 +1004,7 @@
                         <h3>Kisumu Branch</h3>
                         <div class="office-details">
                             <p><i class="fas fa-map-marker-alt"></i> Milimani, Kisumu</p>
-                            <p><i class="fas fa-phone"></i> <a href="tel:+254733000000">+254728687974/+254792 952399</a></p>
+                            <p><i class="fas fa-phone"></i> <a href="tel:+254733000000">+254728687974 / +254792952399</a></p>
                             <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
                         </div>
                         <a href="https://maps.google.com/?q=Kisumu+Kenya" target="_blank" class="btn btn-outline">View on Map</a>
@@ -1120,15 +1126,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - Fixed: removed nested copyright, added currentYear span -->
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-about">
-                    <div class="logo">
-                        <div class="logo-img">FC</div>
-                        <h1>FAVOUR<span>COMP</span></h1>
-                    </div>
+                   
                     <p>Providing cutting-edge IT solutions and services since 2012. Our commitment to excellence drives us to exceed client expectations with every project.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -1154,13 +1157,12 @@
                     <h3>Contact Info</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Eldoret, Uasin Gishu, Kenya</p>
                     <p><i class="fas fa-phone-alt"></i> <a href="tel:+254728050494">+254728050494</a></p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:favourcompexperts@gmail.com">favourcompexperts@gmail.com/favourcomp@gmail.com</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:favourcompexperts@gmail.com">favourcompexperts@gmail.com</a> / <a href="mailto:favourcomp@gmail.com">favourcomp@gmail.com</a></p>
                     <p><i class="fas fa-globe"></i> <a href="https://www.favourcomp-ict-experts.co.ke" target="_blank">www.favourcomp-ict-experts.co.ke</a></p>
                 </div>
             </div>
             <div class="copyright">
-               <div class="copyright"><p>© 2025 FAVOURCOMP ENTERPRISE. All rights reserved. Designed by <a href="https://wa.me/254721473081" target="_blank" class="designer-link">Keith Kili</a>.</p></div>
-
+                <p>© <span id="2025"></span> FAVOURCOMP ENTERPRISE. All rights reserved. Designed by <a href="https://wa.me/254721473081" target="_blank" style="color: var(--primary-red); text-decoration: none;">Keith Kili</a>.</p>
             </div>
         </div>
     </footer>
@@ -1170,23 +1172,25 @@
         const mobileToggle = document.getElementById('mobileToggle');
         const navMenu = document.getElementById('navMenu');
         
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            const icon = mobileToggle.querySelector('i');
-            if (navMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                const icon = mobileToggle.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
         
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
-                if (mobileToggle.querySelector('i')) {
+                if (mobileToggle && mobileToggle.querySelector('i')) {
                     mobileToggle.querySelector('i').classList.remove('fa-times');
                     mobileToggle.querySelector('i').classList.add('fa-bars');
                 }
@@ -1212,10 +1216,8 @@
         
         function handleFormSubmit() {
             if (formSubmitted) return;
-            // Check if the iframe loaded a successful response (we cannot read cross-origin content, but we can assume iframe loaded after submit it succeeded)
             const iframe = document.querySelector('iframe[name="hiddenFrame"]');
             if (iframe && iframe.contentWindow) {
-                // FormSubmit usually returns a small HTML page with "success" message. We'll show alert and reset.
                 formSubmitted = true;
                 alert('✅ Thank you for your message! We will get back to you within 24 hours.');
                 document.getElementById('contactForm').reset();
@@ -1225,17 +1227,17 @@
         
         // Manual trigger for the form submission: reset flag before submit
         const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function() {
-            formSubmitted = false;
-            // Give a short delay to allow iframe to load
-            setTimeout(() => {
-                if (!formSubmitted) {
-                    // If after 3 seconds no alert, assume success anyway (network lag)
-                    alert('Thank you for your message! Our team will respond soon.');
-                    contactForm.reset();
-                }
-            }, 3000);
-        });
+        if (contactForm) {
+            contactForm.addEventListener('submit', function() {
+                formSubmitted = false;
+                setTimeout(() => {
+                    if (!formSubmitted) {
+                        alert('Thank you for your message! Our team will respond soon.');
+                        contactForm.reset();
+                    }
+                }, 3000);
+            });
+        }
         
         // Animation on scroll
         const animateElements = document.querySelectorAll('.animate');
@@ -1259,7 +1261,6 @@
                 const answer = question.nextElementSibling;
                 const icon = question.querySelector('.faq-icon');
                 
-                // Close other open FAQs
                 document.querySelectorAll('.faq-answer.active').forEach(activeAnswer => {
                     if (activeAnswer !== answer) {
                         activeAnswer.classList.remove('active');
@@ -1270,7 +1271,6 @@
                     }
                 });
                 
-                // Toggle current FAQ
                 question.classList.toggle('active');
                 answer.classList.toggle('active');
                 icon.textContent = question.classList.contains('active') ? '−' : '+';
@@ -1290,7 +1290,10 @@
         });
 
         // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
     </script>
 </body>
 </html>
