@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>FAVOURCOMP ENTERPRISE | Our Services & Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #0B0B0F;
+            color: #EFF0F3;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-deep: #050508;
+            --bg-surface: #111116;
+            --bg-elevated: #181C24;
+            --accent-primary: #E33646;
+            --accent-hover: #C81E2E;
+            --text-light: #FFFFFF;
+            --text-secondary: #C9CFDF;
+            --text-muted: #8F95A8;
+            --border-subtle: #252A33;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1300px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 34px;
+            background: linear-gradient(95deg, var(--accent-primary) 0%, #D42A3A 100%);
+            color: white;
+            font-weight: 600;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 18px rgba(227, 54, 70, 0.25);
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(95deg, #F03E4E 0%, #B81E2E 100%);
+            box-shadow: 0 14px 26px rgba(227, 54, 70, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--accent-primary);
+            box-shadow: none;
+            color: var(--accent-primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #FFFFFF 20%, #E65C6B 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Header - same as main page */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 5, 8, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(227, 54, 70, 0.25);
+            transition: 0.3s;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-img {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-primary);
+            background: #1E1E26;
+        }
+
+        .logo h1 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #EFF0F5;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-primary);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero-projects {
+            background: radial-gradient(ellipse at 40% 30%, #101016, #020205);
+            padding: 210px 0 120px;
+            text-align: center;
+            border-bottom: 1px solid #1C1F28;
+        }
+
+        .hero-projects h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, #fff, #E86270);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .hero-projects p {
+            font-size: 1.2rem;
+            max-width: 760px;
+            margin: 0 auto 30px;
+            color: #BEC3D4;
+        }
+
+        /* Service Catalog Styles (adapted from VoltKram, dark themed) */
+        .category-wrapper {
+            margin-bottom: 4rem;
+        }
+        .category-title {
+            font-size: 2rem;
+            font-weight: 800;
+            border-left: 6px solid var(--accent-primary);
+            padding-left: 1.2rem;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+            color: var(--text-light);
+        }
+        .category-title i {
+            color: var(--accent-primary);
+            margin-right: 12px;
+        }
+        .service-catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        .service-card {
+            background: var(--bg-elevated);
+            border-radius: 28px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-subtle);
+            cursor: pointer;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.5);
+        }
+        .card-img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+        .service-card:hover .card-img {
+            transform: scale(1.03);
+        }
+        .card-content {
+            padding: 1.5rem;
+        }
+        .card-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--text-light);
+        }
+        .card-content p {
+            color: var(--text-secondary);
+            line-height: 1.45;
+            font-size: 0.9rem;
+        }
+        .click-hint {
+            margin-top: 0.8rem;
+            font-size: 0.7rem;
+            color: var(--accent-primary);
+            display: inline-block;
+            border-top: 1px dashed rgba(227, 54, 70, 0.4);
+            padding-top: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Modal (dark theme) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.92);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.2s, opacity 0.2s;
+        }
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modal-container {
+            background: var(--bg-elevated);
+            max-width: 1050px;
+            width: 90%;
+            border-radius: 40px;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 40px 60px rgba(0,0,0,0.5);
+        }
+        .modal-img {
+            flex: 1.2;
+            min-width: 240px;
+            background: #1E242C;
+        }
+        .modal-img img {
+            width: 100%;
+            height: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        .modal-details {
+            flex: 1.5;
+            padding: 2rem;
+            background: var(--bg-elevated);
+        }
+        .modal-details h3 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+        .modal-details .category-tag {
+            display: inline-block;
+            background: rgba(227, 54, 70, 0.2);
+            color: var(--accent-primary);
+            border-radius: 30px;
+            padding: 0.2rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+        .modal-details .extended-desc {
+            margin: 1rem 0;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+        .feature-list-modal {
+            list-style: none;
+            margin: 1.2rem 0;
+        }
+        .feature-list-modal li {
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .feature-list-modal li i {
+            color: var(--accent-primary);
+            width: 22px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+            background: #1A1E28;
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.4rem;
+            color: white;
+            transition: 0.2s;
+        }
+        .modal-close:hover {
+            background: var(--accent-primary);
+        }
+        .btn-modal-contact {
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            margin-top: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-modal-contact:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #030307;
+            padding: 70px 0 30px;
+            border-top: 1px solid #1A202A;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 45px;
+            margin-bottom: 45px;
+        }
+        .social-links {
+            display: flex;
+            gap: 18px;
+            margin-top: 20px;
+        }
+        .social-links a {
+            background: #191E28;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: 0.2s;
+        }
+        .social-links a:hover {
+            background: var(--accent-primary);
+        }
+        .copyright {
+            text-align: center;
+            color: #777E8C;
+            padding-top: 30px;
+            border-top: 1px solid #191E28;
+        }
+
+        @media (max-width: 850px) {
+            .mobile-toggle {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 85px;
+                right: -100%;
+                background: #0A0C12;
+                flex-direction: column;
+                width: 260px;
+                height: calc(100vh - 85px);
+                padding: 40px 30px;
+                transition: 0.3s;
+                border-left: 1px solid #2C3440;
+                backdrop-filter: blur(20px);
+            }
+            .nav-menu.active {
+                right: 0;
+            }
+            .hero-projects h1 {
+                font-size: 2.5rem;
+            }
+            .category-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <img class="logo-img" src="https://i.pinimg.com/736x/71/94/e5/7194e59d302747a79326de8862d59ddd.jpg" alt="FavourComp">
+            <h1>FAVOUR<span>COMP</span></h1>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#values">Values</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <section class="hero-projects">
+        <div class="container">
+            <h1>Our Professional Installations</h1>
+            <p>Solar • CCTV • Starlink • Access Control • Fire Alarm — Delivering excellence across Kenya</p>
+            <a href="#services-catalog" class="btn">Explore Solutions <i class="fas fa-arrow-down"></i></a>
+        </div>
+    </section>
+
+    <section id="services-catalog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Technical Expertise</h2>
+                <p>End-to-end installation services for modern enterprises and homes</p>
+            </div>
+
+            <!-- CATEGORY: SOLAR POWER SYSTEMS -->
+            <div class="category-wrapper">
+                <div class="category-title"><i class="fas fa-solar-panel"></i> SOLAR POWER SYSTEMS</div>
+                <div class="service-catalog-grid">
+                    <div class="service-card" data-title="High-Efficiency Panels" data-img="https://i.pinimg.com/736x/41/17/79/4117797f5116858339cf8df66358e320.jpg" data-category="Solar">
+                        <img class="card-img" src="https://i.pinimg.com/736x/41/17/79/4117797f5116858339cf8df66358e320.jpg" alt="Solar panels">
+                        <div class="card-content"><h3>High-Efficiency Panels</h3><p>Monocrystalline & polycrystalline modules, optimized tilt for maximum yield.</p><div class="click-hint"><i class="fas fa-search-plus"></i> click for full specs</div></div>
+                        <div class="extended-details" style="display:none;"><div class="full-desc">Tier-1 solar panels with 25-year performance warranty. Efficiency up to 22.5%, PID resistance. Professional structural mounting, string sizing, and full earthing.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> 25-year warranty</li><li><i class="fas fa-check-circle"></i> Bifacial & half-cut options</li><li><i class="fas fa-check-circle"></i> Smart module-level monitoring</li></ul></div>
+                    </div>
+                    <div class="service-card" data-title="Inverter + Battery Storage" data-img="https://i.pinimg.com/1200x/ca/29/77/ca2977d513d61455c41aa01dd2698e1f.jpg" data-category="Solar">
+                        <img class="card-img" src="https://i.pinimg.com/1200x/ca/29/77/ca2977d513d61455c41aa01dd2698e1f.jpg" alt="Inverter battery">
+                        <div class="card-content"><h3>Inverter + Battery Storage</h3><p>Hybrid inverters, lithium battery banks, grid-tie & off-grid readiness.</p><div class="click-hint"><i class="fas fa-search-plus"></i> click for details</div></div>
+                        <div class="extended-details" style="display:none;"><div class="full-desc">Seamless backup power with 10kWh to 100kWh lithium batteries. Automatic changeover, UPS mode, and remote monitoring via Wi-Fi/4G.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> LiFePO4 battery (10-year life)</li><li><i class="fas fa-check-circle"></i> Touchscreen monitoring</li><li><i class="fas fa-check-circle"></i> Parallel up to 120kW</li></ul></div>
+                    </div>
+                    <div class="service-card" data-title="Rooftop & Ground Mount" data-img="https://i.pinimg.com/736x/de/3e/63/de3e63ec80f63f5ddff2d7d6fb6e1153.jpg" data-category="Solar">
+                        <img class="card-img" src="https://i.pinimg.com/736x/de/3e/63/de3e63ec80f63f5ddff2d7d6fb6e1153.jpg" alt="Rooftop mounting">
+                        <div class="card-content"><h3>Rooftop & Ground Mount</h3><p>Custom racking, weatherproof integration, residential & commercial.</p><div class="click-hint"><i class="fas fa-search-plus"></i> click for more</div></div>
+                        <div class="extended-details" style="display:none;"><div class="full-desc">Aluminium and stainless steel racking engineered for high wind loads. Fixed tilt, adjustable, and solar tracking options. Ground mount with concrete foundations.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> Corrosion-resistant rails</li><li><i class="fas fa-check-circle"></i> Earth grounding & lightning protection</li><li><i class="fas fa-check-circle"></i> Carport solar structures</li></ul></div>
+                    </div>
+                    <div class="service-card" data-title="Smart Energy Monitor" data-img="https://i.pinimg.com/1200x/27/3f/07/273f074e18be5d4c6a3b2596d73f3c61.jpg" data-category="Solar">
+                        <img class="card-img" src="https://i.pinimg.com/1200x/27/3f/07/273f074e18be5d4c6a3b2596d73f3c61.jpg" alt="Solar monitoring">
+                        <div class="card-content"><h3>Smart Energy Monitor</h3><p>Real-time production tracking, consumption analytics & remote diagnostic.</p><div class="click-hint"><i class="fas fa-search-plus"></i> click for details</div></div>
+                        <div class="extended-details" style="display:none;"><div class="full-desc">Web & mobile dashboard showing solar generation, grid import/export, battery status, and carbon savings. Alerts for underperformance.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> Historical data export</li><li><i class="fas fa-check-circle"></i> Consumption per appliance</li><li><i class="fas fa-check-circle"></i> API for home automation</li></ul></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORY: CCTV & SURVEILLANCE -->
+            <div class="category-wrapper">
+                <div class="category-title"><i class="fas fa-video"></i> CCTV & SURVEILLANCE</div>
+                <div class="service-catalog-grid">
+                    <div class="service-card" data-title="Ultra HD 4K Cameras" data-img="https://i.pinimg.com/1200x/f2/1c/39/f21c39d486d86734a59bfbb997abdece.jpg" data-category="CCTV">
+                        <img class="card-img" src="https://i.pinimg.com/1200x/f2/1c/39/f21c39d486d86734a59bfbb997abdece.jpg" alt="4K camera"><div class="card-content"><h3>Ultra HD 4K Cameras</h3><p>Crystal-clear footage, night vision, wide dynamic range for 24/7 protection.</p><div class="click-hint"><i class="fas fa-search-plus"></i> click for details</div></div>
+                        <div class="extended-details"><div class="full-desc">8MP IP cameras with H.265 compression, 120dB WDR, true day/night. IR range up to 50m, vandal-proof IK10 housing. Smart detection: line crossing, intrusion, face detection.</div></div>
+                    </div>
+                    <div class="service-card" data-title="NVR + Cloud Storage" data-img="https://i.pinimg.com/736x/47/79/5b/47795bb4ab0862d3b75493153de87329.jpg" data-category="CCTV">
+                        <img class="card-img" src="https://i.pinimg.com/736x/47/79/5b/47795bb4ab0862d3b75493153de87329.jpg" alt="NVR storage"><div class="card-content"><h3>NVR + Cloud Storage</h3><p>Edge recording, AI motion detection, remote access from any device.</p><div class="click-hint"><i class="fas fa-search-plus"></i> click for specs</div></div>
+                        <div class="extended-details"><div class="full-desc">4/8/16-channel NVRs with RAID support, up to 20TB storage. Redundant recording + optional cloud backup. Mobile app for live view, playback, and push alerts.</div></div>
+                    </div>
+                    <div class="service-card" data-title="Night Vision & Thermal" data-img="https://i.pinimg.com/736x/94/8e/47/948e47330f694b7ff8cd739661f5a74b.jpg" data-category="CCTV">
+                        <img class="card-img" src="https://i.pinimg.com/736x/94/8e/47/948e47330f694b7ff8cd739661f5a74b.jpg" alt="Thermal camera"><div class="card-content"><h3>Night Vision & Thermal</h3><p>Low-light excellence and thermal cameras for perimeter security.</p><div class="click-hint"><i class="fas fa-search-plus"></i> details</div></div>
+                        <div class="extended-details"><div class="full-desc">Starlight sensors (0.001 lux) + thermal imaging up to 640x512 resolution. Perfect for wide area surveillance, fire detection, and intrusion detection in total darkness.</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORY: STARLINK SATELLITE INTERNET -->
+            <div class="category-wrapper">
+                <div class="category-title"><i class="fas fa-satellite-dish"></i> STARLINK SATELLITE INTERNET</div>
+                <div class="service-catalog-grid">
+                    <div class="service-card" data-title="Precision Dish Mounting" data-img="https://i.pinimg.com/1200x/e2/04/df/e204df7c74135fa8a11745702a3045ee.jpg" data-category="Starlink">
+                        <img class="card-img" src="https://i.pinimg.com/1200x/e2/04/df/e204df7c74135fa8a11745702a3045ee.jpg" alt="Starlink mount"><div class="card-content"><h3>Precision Dish Mounting</h3><p>Roof/pole/wall mounts, zero obstructions, low latency.</p><div class="click-hint"><i class="fas fa-search-plus"></i> more</div></div>
+                        <div class="extended-details"><div class="full-desc">Professional installation of Starlink Gen2/Gen3, proper grounding, cable hiding, and obstruction mapping using Starlink app. Mounts for tile, flat roof, siding, and poles up to 10ft.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> 150ft cable routing</li><li><i class="fas fa-check-circle"></i> Surge suppression</li><li><i class="fas fa-check-circle"></i> 1-year labor warranty</li></ul></div>
+                    </div>
+                    <div class="service-card" data-title="High-Throughput Setup" data-img="https://i.pinimg.com/1200x/2a/ee/cd/2aeecdebd8b24269af0b10a7c7e9af00.jpg" data-category="Starlink">
+                        <img class="card-img" src="https://i.pinimg.com/1200x/2a/ee/cd/2aeecdebd8b24269af0b10a7c7e9af00.jpg"><div class="card-content"><h3>High-Throughput Setup</h3><p>Full config, WiFi mesh integration for up to 350 Mbps.</p><div class="click-hint"><i class="fas fa-search-plus"></i></div></div>
+                        <div class="extended-details"><div class="full-desc">Configure Starlink router in bypass mode, integrate with enterprise mesh systems (Ubiquiti, TP-Link, Eero). Optimised for low latency video calls & gaming.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> Band steering / QoS</li><li><i class="fas fa-check-circle"></i> Wired backhaul option</li></ul></div>
+                    </div>
+                    <div class="service-card" data-title="Cabling & Surge Protection" data-img="https://i.pinimg.com/1200x/71/52/bd/7152bdd0ae16e56169f2be4e96d4c351.jpg" data-category="Starlink">
+                        <img class="card-img" src="https://i.pinimg.com/1200x/71/52/bd/7152bdd0ae16e56169f2be4e96d4c351.jpg"><div class="card-content"><h3>Cabling & Surge Protection</h3><p>Professional routing, weatherproof connectors, PoE injectors.</p><div class="click-hint"><i class="fas fa-search-plus"></i></div></div>
+                        <div class="extended-details"><div class="full-desc">Shielded outdoor Cat6, direct burial rated, and gas discharge tube surge protectors for dish and indoor equipment, protecting against lightning-induced surges.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> IP68 junction boxes</li><li><i class="fas fa-check-circle"></i> Grounding electrode</li></ul></div>
+                    </div>
+                    <div class="service-card" data-title="Remote Management" data-img="https://i.pinimg.com/1200x/ab/1b/e1/ab1be102bf5769dff126a946f7f60f53.jpg" data-category="Starlink">
+                        <img class="card-img" src="https://i.pinimg.com/1200x/ab/1b/e1/ab1be102bf5769dff126a946f7f60f53.jpg"><div class="card-content"><h3>Remote Management</h3><p>Starlink app setup, signal mapping, real-time diagnostics.</p><div class="click-hint"><i class="fas fa-search-plus"></i></div></div>
+                        <div class="extended-details"><div class="full-desc">Post-installation support: remote troubleshooting, speed tests, obstruction viewer, and automated firmware updates. Training on the Starlink app.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> Priority support 24/7</li><li><i class="fas fa-check-circle"></i> Statistics dashboard</li></ul></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORY: ACCESS CONTROL SYSTEMS -->
+            <div class="category-wrapper">
+                <div class="category-title"><i class="fas fa-door-open"></i> ACCESS CONTROL SYSTEMS</div>
+                <div class="service-catalog-grid">
+                    <div class="service-card" data-title="Biometric Readers" data-img="https://i.pinimg.com/736x/b3/43/87/b34387444e6023675f375b1886a36986.jpg" data-category="Access Control">
+                        <img class="card-img" src="https://i.pinimg.com/736x/b3/43/87/b34387444e6023675f375b1886a36986.jpg"><div class="card-content"><h3>Biometric Readers</h3><p>Fingerprint & facial recognition, high-security logs.</p><div class="click-hint"><i class="fas fa-search-plus"></i></div></div>
+                        <div class="extended-details"><div class="full-desc">Multispectral fingerprint + IR face cameras. 1:N matching up to 10k users. Anti-spoofing, waterproof IP65. Integration with electric strikes & magnetic locks.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> 0.5 sec verification</li><li><i class="fas fa-check-circle"></i> PoE + backup battery</li></ul></div>
+                    </div>
+                    <div class="service-card" data-title="Smart Card / Mobile" data-img="https://i.pinimg.com/736x/1c/bf/b3/1cbfb355865629df2bc65155e0d1cdea.jpg" data-category="Access Control">
+                        <img class="card-img" src="https://i.pinimg.com/736x/1c/bf/b3/1cbfb355865629df2bc65155e0d1cdea.jpg"><div class="card-content"><h3>Smart Card / Mobile</h3><p>RFID, NFC, smartphone credentials – seamless entry.</p><div class="click-hint"><i class="fas fa-search-plus"></i></div></div>
+                        <div class="extended-details"><div class="full-desc">13.56MHz Mifare DESFire, BLE mobile access via Apple Wallet/Google Pay. Audit trail and remote revocation. Works with any Wiegand controller.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> Encrypted credentials</li></ul></div>
+                    </div>
+                    <div class="service-card" data-title="Magnetic Locks & Strikes" data-img="https://i.pinimg.com/1200x/a7/2c/d5/a72cd53c862783f68bd964c1ce873a50.jpg" data-category="Access Control">
+                        <img class="card-img" src="https://i.pinimg.com/1200x/a7/2c/d5/a72cd53c862783f68bd964c1ce873a50.jpg"><div class="card-content"><h3>Magnetic Locks & Strikes</h3><p>High-holding force locks, fail-safe/fail-secure configs.</p><div class="click-hint"><i class="fas fa-search-plus"></i></div></div>
+                        <div class="extended-details"><div class="full-desc">600lb to 1200lb electromagnetic locks, heavy-duty electric strikes, door position sensors, and exit buttons. UL listed, fire-rated options.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> Relocking delay</li><li><i class="fas fa-check-circle"></i> Integration with fire alarm</li></ul></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORY: FIRE ALARM SYSTEMS -->
+            <div class="category-wrapper">
+                <div class="category-title"><i class="fas fa-bell"></i> FIRE ALARM SYSTEMS</div>
+                <div class="service-catalog-grid">
+                    <div class="service-card" data-title="Intelligent Smoke Sensors" data-img="https://i.pinimg.com/736x/66/37/c8/6637c88006c106b9c1ebb3f369b35f13.jpg" data-category="Fire Alarm">
+                        <img class="card-img" src="https://i.pinimg.com/736x/66/37/c8/6637c88006c106b9c1ebb3f369b35f13.jpg"><div class="card-content"><h3>Intelligent Smoke Sensors</h3><p>Photoelectric & ionization detectors with fast response.</p><div class="click-hint"><i class="fas fa-search-plus"></i></div></div>
+                        <div class="extended-details"><div class="full-desc">Addressable smoke sensors with drift compensation, daily sensitivity test, and dirty chamber alert. Early warning for smoldering and flaming fires.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> Dual wavelength</li><li><i class="fas fa-check-circle"></i> Remote test/reset</li></ul></div>
+                    </div>
+                    <div class="service-card" data-title="Fixed & Rate-of-Rise Heat" data-img="https://i.pinimg.com/736x/63/0a/ed/630aede8db602a1466c49c80e484a72f.jpg" data-category="Fire Alarm">
+                        <img class="card-img" src="https://i.pinimg.com/736x/63/0a/ed/630aede8db602a1466c49c80e484a72f.jpg"><div class="card-content"><h3>Fixed & Rate-of-Rise Heat</h3><p>Ideal for kitchens, garages, harsh environments.</p><div class="click-hint"><i class="fas fa-search-plus"></i></div></div>
+                        <div class="extended-details"><div class="full-desc">EN54 certified heat detectors, operates from -20°C to 70°C. Rate-of-rise (8°C/min) and fixed 58°C/90°C thresholds. IP44 rated.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> Corrosion resistant</li></ul></div>
+                    </div>
+                    <div class="service-card" data-title="Addressable Panels" data-img="https://i.pinimg.com/1200x/4d/01/b7/4d01b73b17532179520d98fbb5f6fe05.jpg" data-category="Fire Alarm">
+                        <img class="card-img" src="https://i.pinimg.com/1200x/4d/01/b7/4d01b73b17532179520d98fbb5f6fe05.jpg"><div class="card-content"><h3>Addressable Panels</h3><p>Fire alarm control, voice evacuation & strobes.</p><div class="click-hint"><i class="fas fa-search-plus"></i></div></div>
+                        <div class="extended-details"><div class="full-desc">Modular panels supporting up to 500 devices, graphical LCD, event log, networkable for large sites. Emergency voice communication and synchronized strobes.</div><ul class="feature-list-modal"><li><i class="fas fa-check-circle"></i> 24hr standby battery</li></ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="logo">
+                    <img class="logo-img" src="https://i.pinimg.com/736x/71/94/e5/7194e59d302747a79326de8862d59ddd.jpg" alt="logo" style="width:45px;">
+                    <h1 style="font-size:1.5rem;">FAVOUR<span>COMP</span></h1>
+                </div>
+                <p style="margin-top: 18px;">Delivering future-ready IT solutions with integrity and speed.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Services</h3>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li>Solar & Energy Storage</li>
+                    <li>CCTV & Security</li>
+                    <li>Starlink Installation</li>
+                    <li>Access Control</li>
+                    <li>Fire Alarm Systems</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Support</h3>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li><a href="index.html#contact" style="color:#A8AFC0; text-decoration: none;">Contact</a></li>
+                    <li>FAQ</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright"><p>© 2025 FAVOURCOMP ENTERPRISE. All rights reserved. Designed for performance.</p></div>
+    </div>
+</footer>
+
+<!-- Modal Structure -->
+<div id="serviceModal" class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></div>
+        <div class="modal-img"><img id="modalImage" src="" alt="Service detail"></div>
+        <div class="modal-details">
+            <h3 id="modalTitle"></h3>
+            <div class="category-tag" id="modalCategory"></div>
+            <div id="modalExtendedDesc" class="extended-desc"></div>
+            <button class="btn-modal-contact" id="modalContactBtn">Request Installation Quote →</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Mobile navigation toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    mobileToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        const icon = mobileToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+        });
+    });
+
+    // Modal handling for service cards
+    const cards = document.querySelectorAll('.service-card');
+    const modal = document.getElementById('serviceModal');
+    const modalImg = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalDescContainer = document.getElementById('modalExtendedDesc');
+    const closeModal = document.getElementById('closeModalBtn');
+
+    function openModal(card) {
+        const title = card.getAttribute('data-title') || card.querySelector('h3')?.innerText || 'Service detail';
+        const imgSrc = card.getAttribute('data-img') || card.querySelector('.card-img')?.src || '';
+        const category = card.getAttribute('data-category') || 'Installation';
+        const hiddenDiv = card.querySelector('.extended-details');
+        let extendedHTML = '';
+        if (hiddenDiv) {
+            const fullDescDiv = hiddenDiv.querySelector('.full-desc');
+            const ulList = hiddenDiv.querySelector('ul');
+            extendedHTML = `<div>${fullDescDiv ? fullDescDiv.innerHTML : ''}</div>`;
+            if (ulList) extendedHTML += `<ul class="feature-list-modal">${ulList.innerHTML}</ul>`;
+        } else {
+            extendedHTML = '<p>Professional installation with certified warranty. Contact our team for custom quote.</p>';
+        }
+        modalTitle.innerText = title;
+        modalImg.src = imgSrc;
+        modalCategory.innerText = category.toUpperCase() + ' EXPERTISE';
+        modalDescContainer.innerHTML = extendedHTML;
+        modal.classList.add('active');
+    }
+
+    cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openModal(card);
+        });
+    });
+    closeModal.addEventListener('click', () => modal.classList.remove('active'));
+    modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
+    document.getElementById('modalContactBtn')?.addEventListener('click', () => {
+        modal.classList.remove('active');
+        const contactSection = document.querySelector('footer');
+        if(contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if(window.scrollY > 60) header.style.background = 'rgba(5, 5, 8, 0.95)';
+        else header.style.background = 'rgba(5, 5, 8, 0.85)';
+    });
+</script>
+</body>
+</html>
