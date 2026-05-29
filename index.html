@@ -252,10 +252,22 @@
             border: 1px solid #2F3542;
         }
 
-        .about-image img {
+        .about-image .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .about-image .image-grid img {
             width: 100%;
+            height: auto;
             display: block;
-            transition: 0.4s;
+            transition: transform 0.4s;
+            border-radius: 24px; /* soft rounded corners inside the container */
+        }
+
+        .about-image:hover .image-grid img {
+            transform: scale(1.05);
         }
 
         .stats-grid {
@@ -640,6 +652,14 @@
                 font-size: 2.2rem;
             }
         }
+
+        /* Responsive for about image grid */
+        @media (max-width: 768px) {
+            .about-image .image-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -685,7 +705,10 @@
                     <p>Empower clients with reliable, secure, and agile IT infrastructure that drives measurable business outcomes.</p>
                 </div>
                 <div class="about-image animate">
-                    <img src="https://i.pinimg.com/736x/73/4a/55/734a553f6c9ffd86e0b8922347fee45a.jpg" alt="Tech team collaboration">
+                    <div class="image-grid">
+                        <img src="https://i.pinimg.com/736x/73/4a/55/734a553f6c9ffd86e0b8922347fee45a.jpg" alt="Tech team collaboration">
+                        <img src="https://i.pinimg.com/736x/02/ea/24/02ea240c6f8f74ba02f2a8601568d947.jpg" alt="Office environment">
+                    </div>
                 </div>
             </div>
             <div class="stats-grid">
@@ -771,10 +794,10 @@
         <div class="container">
             <div class="section-title animate"><h2>Leadership & Experts</h2><p>Innovation-driven professionals</p></div>
             <div class="team-grid">
-                <div class="team-card animate"><div class="member-img"><img src="https://i.pinimg.com/736x/6f/5f/b0/6f5fb05588160ba20f957c490eb8c654.jpg" alt="Wilberforce"><div class="member-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="member-info"><h3>Wilberforce Mwanga</h3><p>Chief Executive Officer</p><span style="color: #A8AFC0;">0728687974</span></div></div>
-                <div class="team-card animate"><div class="member-img"><img src="https://i.pinimg.com/736x/eb/f3/36/ebf336605c6880e9dde33715ddc9ed78.jpg" alt="keith"><div class="member-social"><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div><div class="member-info"><h3>keith kili</h3><p>Chief Operating Officer</p><span>0721473081</span></div></div>
-                <div class="team-card animate"><div class="member-img"><img src="https://i.pinimg.com/1200x/65/63/80/6563802a9c2f44e175da328e3c9aa4b3.jpg" alt="oscar"><div class="member-social"><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div><div class="member-info"><h3>Oscar Wafula</h3><p>Head of Marketing</p><span>0725139649</span></div></div>
-                               <div class="team-card animate"><div class="member-img"><img src="https://i.pinimg.com/1200x/50/41/d5/5041d5c7bba806df99d9eece6e440aa7.jpg" alt="oscar"><div class="member-social"><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div><div class="member-info"><h3> Robert Elegwa</h3><p> Head of technical</p><span>0723096019</span></div></div>
+                <div class="team-card animate"><div class="member-img"><img src="https://i.pinimg.com/736x/6f/5f/b0/6f5fb05588160ba20f957c490eb8c654.jpg" alt="Wilberforce"><div class="member-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="member-info"><h3>Wilberforce Mwanga</h3><p>Chief Executive Officer/Lead technician.</p><span style="color: #A8AFC0;"></span></div></div>
+                <div class="team-card animate"><div class="member-img"><img src="https://i.pinimg.com/736x/eb/f3/36/ebf336605c6880e9dde33715ddc9ed78.jpg" alt="keith"><div class="member-social"><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div><div class="member-info"><h3>keith kili</h3><p>Software eng</p><span></span></div></div>
+                <div class="team-card animate"><div class="member-img"><img src="https://i.pinimg.com/1200x/65/63/80/6563802a9c2f44e175da328e3c9aa4b3.jpg" alt="oscar"><div class="member-social"><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div><div class="member-info"><h3>Oscar Wafula</h3><p> Marketing</p><span></span></div></div>
+                               <div class="team-card animate"><div class="member-img"><img src="https://i.pinimg.com/1200x/50/41/d5/5041d5c7bba806df99d9eece6e440aa7.jpg" alt="oscar"><div class="member-social"><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div><div class="member-info"><h3> Robert Elegwa</h3><p> Technician</p><span></span></div></div>
 
             </div>
         </div>
